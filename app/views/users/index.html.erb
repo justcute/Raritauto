@@ -1,0 +1,22 @@
+<%=form_tag(users_path, method: :get) do%>
+  <%= text_field_tag(:search, params[:search])%>
+  <%=submit_tag ("Найти")%>
+<%end%>
+<div class="bigbox">
+  <div class="box">
+    <table class="table-minimal">
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <%= render user %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%if @users.empty?%>
+<p>Ничего не найдено</p>
+<% end %>
+<%= link_to_prev_page @users, 'Previous Page' %>
+<%= link_to_next_page @users, 'Next Page' %>

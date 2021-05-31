@@ -1,0 +1,30 @@
+<div class="container">
+
+
+<br><br>
+<h1>Выбор:</h1>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+
+<% @products.each do |product| %>
+<div class="col">
+    <div class="card shadow-sm">
+      <%= image_tag product.avatar, style: "width: 100; height:300px", class: "bd-placeholder-img card-img-top"%>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><b><%=product.title.capitalize%></b><br><%=product.body%><br><br>
+          <b>Марка:</b><%=product.mark%><br><b>Цвет:</b><%=product.color%>
+          <br><b>Двигатель:</b><%=product.engine%></p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Подробнее', product, class:"btn-sm btn-outline-secondary" %></button>
+            <button type="button" class="btn btn-sm btn-outline-primary active"><%= link_to 'Выбрать наилучшим', get_winner_product_path(product.id), class:"btn-sm btn-outline-primary active" %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <%end%>
+</div>
+
+</div>

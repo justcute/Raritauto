@@ -1,0 +1,33 @@
+
+
+<%= image_tag @product.avatar, style: "width: 500px; display: block" %>
+
+<p>
+  <strong>Название:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Описание:</strong>
+  <%= @product.body %>
+</p>
+
+<p>
+  <strong>Марка:</strong>
+  <%= @product.mark %>
+</p>
+
+<p>
+  <strong>Цвет:</strong>
+  <%= @product.color %>
+</p>
+
+<p>
+  <strong>Двигатель:</strong>
+  <%= @product.engine %>
+</p>
+
+<%if user_signed_in? && (current_user.admin?)%>
+<%= link_to 'Редактировать', edit_product_path(@product) %> |
+<%end%>
+<%= link_to 'Назад', products_path %>

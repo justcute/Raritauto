@@ -1,0 +1,45 @@
+<%= form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Название" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Описание" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="img">
+    <% if product.avatar.attached? %>
+      <%= image_tag product.avatar, style: "width: 250px; display: block"%>
+    <%end%>
+    <%= form.file_field :avatar %>
+  </div>
+<br><br>
+  <p>Марка:
+  <%= form.select :mark, options_for_select(["Škoda", "BMW", "Audi", "Mercedes", "Ford", "Honda", "Другое"], "Другое") %></p>
+  <p>Цвет:
+  <%= form.select :color, options_for_select(["чёрный", "серый", "белый", "красный", "зелёный", "синий", "другое"], "другое") %></p>
+  <p>Двигатель:
+  <%= form.select :engine, options_for_select(["бензиновый", "дизельный", "гибрид", "электро"], "бензиновый") %></p>
+
+
+
+  <div class="actions">
+    <%=form.submit 'Выставить автомобиль'%>
+  </div>
+
+
+<% end %>
