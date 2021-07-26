@@ -1,24 +1,71 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Raritauto
 
-Things you may want to cover:
+Raritauto is application to choose best car for restoration
 
-* Ruby version
+---
 
-* System dependencies
+## Roles:
+  * Admin
+  * Client
+  
+---
+## Creation product
 
-* Configuration
+Admin can create products with image and information about it
 
-* Database creation
+## Product rating
 
-* Database initialization
+User can choose two cars and then go to vote page, where user decide which car wins
 
-* How to run the test suite
+## Admin panel
 
-* Services (job queues, cache servers, search engines, etc.)
+Admin can give rights to other users
 
-* Deployment instructions
+---
+## The main page
 
-* ...
+The main page consists of
+*	Cars catalog
+*	Navigation bar
+
+---
+
+## Built with
+
+* Ruby 3.0.1
+
+* Rails 6.1.3.2
+
+---
+## Getting Started
+
+In order to get repository local:
+
+```
+cd <folder>
+
+git clone https://github.com/justcute/Raritauto.git
+
+ ```
+ 
+Then install gems with:
+
+```
+bundle install
+```
+
+Creating database and uploading seeds:
+
+```
+rails db:create
+rails db:migrate
+rails db:seed
+
+```
+
+To start 
+
+```
+rails s
+```  
